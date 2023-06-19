@@ -26,7 +26,7 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Agregar usuario', icon: 'pi pi-fw pi-user-plus', routerLink: ['/plantas/agregarusuario'] },
                     { label: 'Clientes', icon: 'pi pi-fw pi-briefcase', routerLink: ['/plantas/clientes'] },
                     { label: 'Proveedor', icon: 'pi pi-fw pi-box', routerLink: ['/plantas/proveedor'] },
-                    { label: 'Solicitar productos', icon: 'pi pi-fw pi-globe', routerLink: ['/plantas/#'] },
+                    { label: 'Solicitar productos', icon: 'pi pi-fw pi-globe', routerLink: ['/plantas/solicitarproductos'] },
                     { label: 'Inicio de sesiones', icon: 'pi pi-fw pi-power-off', routerLink: ['/plantas/historialinicios'] },
                     { label: 'Configuracion', icon: 'pi pi-fw pi-cog', routerLink: ['/plantas/configuracion'] },
                     { label: 'Cerrar sesion', icon: 'pi pi-fw pi-sign-out', routerLink: ['/auth/login'] },

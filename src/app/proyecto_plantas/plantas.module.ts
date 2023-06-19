@@ -9,6 +9,6 @@ import { PlantasRoutingModule } from './plantas-routing.module';
 	],
 	declarations: [
   	
-  ]
+    ]
 })
 export class PlantasModule { }
