@@ -1,0 +1,25 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+          <h5>Incio de sesiones</h5>
+            <p-table [value]="historialinicios" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th>Codigo inicio</th>
+                    <th>Correo</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-historialventas>
+                  <tr>
+                    <td>{{ historialventas.Codigo }}</td>
+                    <td>{{ historialventas.Productos }}</td>
+                    <td>{{ historialventas.Costo }}</td>
+                    <td>{{ historialventas.Fecha }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+        </div>
+    </div>
+</div>

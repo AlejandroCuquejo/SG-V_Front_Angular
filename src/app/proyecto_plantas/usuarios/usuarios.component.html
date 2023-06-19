@@ -1,0 +1,27 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card">
+      
+<p-table [value]="usuarios" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="caption"> Header </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>N°Usuario</th>
+      <th>Nombre y Apellido</th>
+      <th>Correo</th>
+      <th>Fecha de registro</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-usuario>
+    <tr>
+      <td>{{ usuario.idUsuario }}</td>
+      <td>{{ usuario.nombre }}</td>
+      <td>{{ usuario.correo }}</td>
+      <td>{{ usuario.fechaRegistro }}</td>
+    </tr>
+  </ng-template>
+</p-table>
+    </div>
+  </div>
+</div>
