@@ -9,6 +9,7 @@ import { UsuarioService } from './service/usuario.service';
 export class UsuariosComponent implements OnInit {
 
   usuarios: [] = [];
+  productDialog: boolean = false;
 
   constructor(private UsUsuarioService: UsuarioService) { }
 

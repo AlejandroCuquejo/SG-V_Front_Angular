@@ -1,8 +1,26 @@
 <div class="grid">
-    <div class="col-12">
-        <h5>Registrar usuario</h5>
-        <div class="card">
-
-        </div>
-    </div>
+	<div class="col-12">
+		<div class="card">
+			<h5>Registrar usuario</h5>
+			<div class="p-fluid p-formgrid grid">
+				<div class="field col-12 md:col-6">
+					<label htmlFor="firstname2">Nombre completo</label>
+					<input pInputText id="firstname2" type="text" />
+				</div>
+				<div class="field col-12 md:col-6">
+					<label htmlFor="correo">Correo</label>
+					<input pInputText id="correo" type="email" />
+				</div>
+				<div class="field col-12 md:col-6">
+					<label htmlFor="city">Contraseña</label>
+					<input pInputText id="city" type="password" />
+				</div>
+				<div class="field col-12 md:col-3">
+					<label htmlFor="state">Roles</label>
+					<p-dropdown [options]="dropdownItems" optionLabel="name" ></p-dropdown>
+				</div>
+			
+			</div>
+		</div>
+	</div>
 </div>
