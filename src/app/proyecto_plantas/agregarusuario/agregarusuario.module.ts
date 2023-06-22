@@ -7,6 +7,10 @@ import { DropdownModule } from 'primeng/dropdown';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ToastModule } from 'primeng/toast';
+
 
 @NgModule({
 	imports: [
@@ -16,7 +20,11 @@ import { DividerModule } from 'primeng/divider';
 		DropdownModule,
 		SplitButtonModule,
 		PasswordModule,
-		DividerModule	
+		DividerModule,
+		ReactiveFormsModule,
+		ConfirmPopupModule,
+		ToastModule 
+		
 	],
 	declarations: [AgregarusuarioComponent]
 })

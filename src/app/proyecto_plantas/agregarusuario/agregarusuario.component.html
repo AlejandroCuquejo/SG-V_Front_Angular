@@ -27,41 +27,54 @@
 	</div>
 </div-->
 
-<div class="grid">
-	<div class="col-12">
-		<div class="card">
-			<h5>Registrar usuario</h5>
-			<div class="p-fluid p-formgrid grid">
-				<div class="field col-12 md:col-6">
-					<label htmlFor="firstname2"> <i class="pi pi-user"></i> Nombre completo</label>
-					<input pInputText id="firstname2" type="text" />
+<form [formGroup]="MandarRegistro" (ngSubmit)="enviarDatos()">
+	<div class="grid">
+		<div class="col-12">
+			<div class="card">
+				<h5>Registrar usuario</h5>
+				<div class="p-fluid p-formgrid grid">
+					<div class="field col-12 md:col-6">
+						<label htmlFor="nombre"> <i class="pi pi-user"></i> Nombre completo <span
+								style="color: red;">*</span></label>
+						<input pInputText id="nombre" type="text" formControlName="nombre" name="nombre" />
+					</div>
+					<div class="field col-12 md:col-6">
+						<label htmlFor="correo">
+							<i class="pi pi-envelope"></i> Correo <span style="color: red;">*</span>
+						</label>
+						<input pInputText id="correo" type="email" formControlName="correo" name="correo"
+							pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+							title="Por favor, ingrese una dirección de correo electrónico válida" />
+						<div *ngIf="MandarRegistro.get('correo')?.invalid && MandarRegistro.get('correo')?.touched"
+							class="error-message">
+							<span style="color: red"> Por favor, ingrese una dirección de correo electrónico válida. </span>
+						</div>
+					</div>
+					<div class="field col-12 md:col-6">
+						<label htmlFor="contrasenha"> <i class="pi pi-lock"></i> Contraseña <span
+								style="color: red;">*</span></label>
+						<p-password id="contrasenha" [toggleMask]="true" formControlName="contrasenha"
+							name="contrasenha">
+							<ng-template pTemplate="footer">
+								<p-divider></p-divider>
+								<p class="mt-2">Sugerencias</p>
+								<ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+									<li>Minimo 8 caracteres</li>
+									<li>Una mayuscula</li>
+									<li>Un numero</li>
+								</ul>
+							</ng-template>
+						</p-password>
+					</div>
+					<!--div class="field col-12 md:col-3">
+			  <label htmlFor="rol"> <i class="pi pi-sitemap"></i> Rol</label>
+			  <p-dropdown [options]="dropdownItems" optionLabel="name" formControlName="rol"></p-dropdown>
+			</div-->
 				</div>
-				<div class="field col-12 md:col-6">
-					<label htmlFor="correo"> <i class="pi pi-envelope"></i> Correo</label> 
-					<input pInputText id="correo" type="email" />
+				<div class="flex flex-wrap gap-2">
+					<button pButton pRipple label="Registrar"> </button>
 				</div>
-				<div class="field col-12 md:col-6">
-					<label htmlFor="password"> <i class="pi pi-lock"></i> Contraseña</label>
-					<p-password id="password" [toggleMask]="true">
-						<ng-template pTemplate="footer">
-							<p-divider></p-divider>
-							<p class="mt-2">Sugrencias</p>
-							<ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
-								<li>Minimo 8 caracteres</li>
-								<li>Una mayuscula</li>
-								<li>Un numero</li>
-							</ul>
-						</ng-template>
-					</p-password>
-				  </div>		  
-				<div class="field col-12 md:col-3">
-					<label htmlFor="state"> <i class="pi pi-sitemap"></i> Rol</label>
-					<p-dropdown [options]="dropdownItems" optionLabel="name" ></p-dropdown>
-				</div>
-			</div>
-			<div class="flex flex-wrap gap-2">
-				<button pButton pRipple label="Registrar"></button>
 			</div>
 		</div>
 	</div>
-</div>
+</form>
