@@ -1,32 +1,3 @@
-<!--div class="grid">
-	<div class="col-12">
-		<div class="card">
-			<h5>Agregar usuario</h5>
-			<div class="p-fluid p-formgrid grid">
-				<div class="field col-12 md:col-6">
-					<label htmlFor="firstname2">Nombre completo</label>
-					<input pInputText id="firstname2" type="text" />
-				</div>
-				<div class="field col-12 md:col-6">
-					<label htmlFor="correo">Correo</label>
-					<input pInputText id="correo" type="email" />
-				</div>
-				<div class="field col-12 md:col-6">
-					<label htmlFor="password">Contraseña</label>
-					<p-password id="password" [toggleMask]="true"></p-password>
-				  </div>				  
-				<div class="field col-12 md:col-3">
-					<label htmlFor="state">Rol</label>
-					<p-dropdown [options]="dropdownItems" optionLabel="name" ></p-dropdown>
-				</div>
-			</div>
-			<div class="flex flex-wrap gap-2">
-				<button pButton pRipple label="Registrar"></button>
-			</div>
-		</div>
-	</div>
-</div-->
-
 <form [formGroup]="MandarRegistro" (ngSubmit)="enviarDatos()">
 	<div class="grid">
 		<div class="col-12">
@@ -47,7 +18,8 @@
 							title="Por favor, ingrese una dirección de correo electrónico válida" />
 						<div *ngIf="MandarRegistro.get('correo')?.invalid && MandarRegistro.get('correo')?.touched"
 							class="error-message">
-							<span style="color: red"> Por favor, ingrese una dirección de correo electrónico válida. </span>
+							<span style="color: red"> Por favor, ingrese una dirección de correo electrónico válida.
+							</span>
 						</div>
 					</div>
 					<div class="field col-12 md:col-6">
@@ -66,10 +38,18 @@
 							</ng-template>
 						</p-password>
 					</div>
-					<!--div class="field col-12 md:col-3">
-			  <label htmlFor="rol"> <i class="pi pi-sitemap"></i> Rol</label>
-			  <p-dropdown [options]="dropdownItems" optionLabel="name" formControlName="rol"></p-dropdown>
-			</div-->
+					<div class="field col-12 md:col-6">
+						<label htmlFor="confirmarContrasenha"> <i class="pi pi-lock"></i> Confirmar contraseña <span
+								style="color: red;">*</span></label>
+						<p-password id="confirmarContrasenha" [toggleMask]="true" formControlName="confirmarContrasenha"
+							name="confirmarContrasenha">
+						</p-password>
+					</div>
+					<div class="field col-12 md:col-3">
+						<label htmlFor="rol"> <i class="pi pi-sitemap"></i> Rol <span
+								style="color: red;">*</span></label>
+						<p-dropdown [options]="dropdownItems" optionLabel="name" formControlName="rol"></p-dropdown>
+					</div>
 				</div>
 				<div class="flex flex-wrap gap-2">
 					<button pButton pRipple label="Registrar"> </button>

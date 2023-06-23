@@ -19,27 +19,35 @@ export class AgregarusuarioComponent {
   constructor(private agregarUsuarioService: AgregarusuarioService) {
     this.MandarRegistro = new FormGroup({
       nombre: new FormControl(null, Validators.required),
-      correo: new FormControl(),
-      contrasenha: new FormControl()
+      correo: new FormControl(null, Validators.required),
+      contrasenha: new FormControl(null, Validators.required),
+      confirmarContrasenha: new FormControl(null, Validators.required)
     });
   }
 
   enviarDatos() {
     if (this.MandarRegistro.valid) {
-      this.agregarUsuarioService.enviarDatos(this.MandarRegistro).subscribe(
-        response => {
-          console.log("Éxito al enviar los datos");
-        },
-        error => {
-          if (error instanceof HttpErrorResponse) {
-            if (error.status === 500) {
-              alert("Complete todos los campos");
-            } else {
-              alert("Registrado correctamente");
-            }
-          } 
-        }
-      );
+      const contrasenha = this.MandarRegistro.get('contrasenha')?.value;
+      const confirmarContrasenha = this.MandarRegistro.get('confirmarContrasenha')?.value;
+
+      if (contrasenha === confirmarContrasenha) {
+        this.agregarUsuarioService.enviarDatos(this.MandarRegistro).subscribe(
+          response => {
+            console.log("Éxito al enviar los datos");
+          },
+          error => {
+            if (error instanceof HttpErrorResponse) {
+              if (error.status === 500) {
+                alert("Complete todos los campos");
+              } else {
+                alert("Registrado correctamente");
+              }
+            } 
+          }
+        );
+      } else {
+        alert("Las contraseñas no coinciden. Por favor, inténtalo nuevamente.");
+      }
     } else {
       alert("Por favor, complete todos los campos requeridos.");
     }
