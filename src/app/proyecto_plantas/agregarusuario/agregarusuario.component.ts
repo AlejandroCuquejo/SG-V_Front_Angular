@@ -15,6 +15,7 @@ export class AgregarusuarioComponent {
     { name: 'Caja', value: 'Caja' },
     { name: 'Recursos humanos', value: 'RH' }
   ];
+  router: any;
   
   constructor(private agregarUsuarioService: AgregarusuarioService) {
     this.MandarRegistro = new FormGroup({
@@ -39,8 +40,11 @@ export class AgregarusuarioComponent {
             if (error instanceof HttpErrorResponse) {
               if (error.status === 500) {
                 alert("Complete todos los campos");
-              } else {
+              } else {                
                 alert("Registrado correctamente");
+                this.router.navigate(['/plantas/usuarios']);
+
+
               }
             } 
           }
@@ -52,4 +56,5 @@ export class AgregarusuarioComponent {
       alert("Por favor, complete todos los campos requeridos.");
     }
   }
+
 }

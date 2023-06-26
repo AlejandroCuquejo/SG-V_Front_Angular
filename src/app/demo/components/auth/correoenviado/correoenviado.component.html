@@ -1,3 +1,33 @@
-<p>
-  correoenviado works!
-</p>
+<div class="surface-ground flex align-items-center justify-content-center min-h-screen min-w-screen overflow-hidden">
+  <div class="flex flex-column align-items-center justify-content-center">
+    <div
+      style="border-radius:56px; padding:0.3rem; background: linear-gradient(180deg, var(--primary-color) 10%, rgba(33, 150, 243, 0) 30%);">
+      <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius:53px">
+        <div class="text-center mb-5">
+          <img src="https://i.imgur.com/9Sp70V7.png" alt="Image" height="50" class="mb-3">
+          <div class="text-900 text-3xl font-medium mb-3">Recuperar cuenta</div>
+        </div>
+
+        <div class="grid">
+          <div class="col-12">
+            <div class="card">
+              <div>
+                <label for="email1" class="block text-900 text-xl">
+                  Hemos envio un correo a su cuenta alejandro.cuquejo362@gmail.com para <br>
+                  restablecer su contraña, en caso de no haberlo ricibido mande nuevamente <br>
+                  el correo electrónico.</label>
+                <label for="email1" class="block text-900 text-xl font-medium mb-2"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <a class="font-medium no-underline ml-1 text-right cursor-pointer" style="color: var(--primary-color)"
+          [routerLink]="['/auth/login']">
+          <i class="pi pi-arrow-left"></i> Volver
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

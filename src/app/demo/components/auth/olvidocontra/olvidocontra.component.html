@@ -4,21 +4,21 @@
         <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
           <div class="text-center mb-5">
             <img src="https://i.imgur.com/9Sp70V7.png" alt="Image" height="50" class="mb-3">
-            <div class="text-900 text-3xl font-medium mb-3">Recuperar cuenta</div>
-            <span class="text-600 font-medium">Ingrese su correo electrónico</span>
+            <div class="text-900 text-3xl font-medium mb-3">He olvidado la contraseña</div>
+            <span class="text-600 font-medium">Por favor introduzca su dirección de correo electrónico para </span><br>
+            <span class="text-600 font-medium">recibir un enlace de restablecimiento de contraseña.</span>
           </div>
   
           <form [formGroup]="MandarcorreoRes" (ngSubmit)="enviarCorreo()">
             <div>
               <label for="correo" class="block text-900 text-xl font-medium mb-2"></label>
               <input id="correo" type="email" formControlName="correo"
-                placeholder="Favor ingrese su correo electrónico" pInputText
+                placeholder="Favor ingrese su correo electrónico"pInputText
                 class="w-full md:w-30rem mb-5" style="padding: 1rem">
                 
               <label for="correo" class="block text-900 font-medium text-xl mb-2"></label>
-  
-  
-              <button pButton pRipple label="Enviar"  class="w-full p-3 text-xl"></button>
+
+              <button pButton pRipple label="Enviar" class="w-full p-3 text-xl"></button>
   
             </div>
           </form>
@@ -32,6 +32,10 @@
           <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)"
             [routerLink]="['/auth/restablecercontra']">
             <i class="pi pi-arrow-left"></i> mensaje 2
+          </a>
+          <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)"
+            [routerLink]="['/auth/correoenviado']">
+            <i class="pi pi-arrow-left"></i> mensaje 3
           </a>
         </div>
       </div>

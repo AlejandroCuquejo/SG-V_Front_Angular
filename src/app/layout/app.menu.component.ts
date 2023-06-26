@@ -23,7 +23,7 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Realizar envio', icon: 'pi pi-fw pi-send', routerLink: ['/plantas/envio'] },
                     { label: 'Historial de envios', icon: 'pi pi-fw pi-book', routerLink: ['/plantas/historialenvios'] },
                     { label: 'Usuarios', icon: 'pi pi-fw pi-users', routerLink: ['/plantas/usuarios'] },
-                    { label: 'Agregar usuario', icon: 'pi pi-fw pi-user-plus', routerLink: ['/plantas/agregarusuario'] },
+                    // { label: 'Agregar usuario', icon: 'pi pi-fw pi-user-plus', routerLink: ['/plantas/agregarusuario'] },//
                     { label: 'Clientes', icon: 'pi pi-fw pi-briefcase', routerLink: ['/plantas/clientes'] },
                     { label: 'Proveedor', icon: 'pi pi-fw pi-box', routerLink: ['/plantas/proveedor'] },
                     { label: 'Solicitar productos', icon: 'pi pi-fw pi-globe', routerLink: ['/plantas/solicitarproductos'] },

@@ -7,6 +7,7 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { FormsModule } from '@angular/forms';
+import { TreeModule } from 'primeng/tree';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
 		SplitButtonModule,
 		PasswordModule,
 		FormsModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		TreeModule
 	],
 	declarations: [OlvidocontraComponent]
 })
