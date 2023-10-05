@@ -3,10 +3,10 @@
     <div class="card">
 
       <p-table [value]="inventario" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
-        <ng-template pTemplate="caption"> 
-          <button pButton type="button" (click)="showAgregarProducto()" label="Agregar producto " icon="pi pi-plus" class="mr-2"></button>  
-        </ng-template>
+
         <ng-template pTemplate="header">
+          <button pButton type="button" (click)="showAgregarProducto()" label="Agregar producto " icon="pi pi-plus" class="mr-2 mb-3"></button>  
+
           <tr>
             <th>Codigo</th>
             <th>Producto</th>

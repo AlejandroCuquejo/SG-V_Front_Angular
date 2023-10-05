@@ -29,7 +29,7 @@ export class LayoutService {
         inputStyle: 'outlined',
         menuMode: 'static',
         colorScheme: 'light',
-        theme: 'vela-green',
+        theme: 'saga-green',
         scale: 14,
     };
 

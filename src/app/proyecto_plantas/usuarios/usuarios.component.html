@@ -3,12 +3,9 @@
     <div class="card">
       
 <p-table [value]="usuarios" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }" >
-  <ng-template pTemplate="caption"> 
-    
-    <button pButton type="button" (click)="showAgregarUsuario()" label="Agregar usuario" icon="pi pi-user-plus" class="mr-2"></button>  
-    
-  </ng-template>
+
   <ng-template pTemplate="header">
+    <button pButton type="button" (click)="showAgregarUsuario()" label="Agregar usuario" icon="pi pi-user-plus" class="mr-2 mb-3" ></button>  
     <tr style="text-align: center;">
       <th>N°Usuario</th>
       <th>Nombre y apellido</th>
