@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 @NgModule({
     imports: [RouterModule.forChild([
         { path: 'inventario', data: { breadcrumb: 'Inventario' }, loadChildren: () => import('./inventario/inventario.module').then(m => m.inventarioDemoModule) },
+        { path: 'inventarioForm', data: { breadcrumb: 'InventarioForm' }, loadChildren: () => import('./inventario/inventarioForm/inventarioForm.module').then(m => m.inventarioFormdemoModule) },
         { path: 'vender', data: { breadcrumb: 'vender' }, loadChildren: () => import('./vender/vender.module').then(m => m.venderdemoModule) },
         { path: 'historialventas', data: { breadcrumb: 'Historialventas' }, loadChildren: () => import('./historialventas/historialventas.module').then(m => m.historialventasdemoModule) },
         { path: 'envio', data: { breadcrumb: 'Envios' }, loadChildren: () => import('./envio/envio-routing.module').then(m => m.EnvioDemoRoutingModule) },

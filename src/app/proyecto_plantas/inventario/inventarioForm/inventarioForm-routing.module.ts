@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { InventarioComponent } from './inventario.component';
-
+import { InventarioFormComponent } from './inventarioForm.component';
 
 @NgModule({
 	imports: [RouterModule.forChild([
-		{ path: '', component: InventarioComponent }
+		{ path: '', component: InventarioFormComponent }
 	])],
 	exports: [RouterModule]
 })
