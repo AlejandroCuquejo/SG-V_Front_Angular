@@ -29,8 +29,8 @@ export class InventarioComponent implements OnInit {
     //Muestra ventana emergente para agregar usuario
     showAgregarProducto() {
       const ref = this.dialogService.open(InventarioFormComponent, {
-          header: 'Agragar prodcuto',
-          width: '60%'
+          header: 'Agragar producto',
+          width: '40%'
       });
   }
 

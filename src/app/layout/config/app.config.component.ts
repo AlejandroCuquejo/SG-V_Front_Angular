@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LayoutService } from "../service/app.layout.service";
 import { MenuService } from "../app.menu.service";
 
@@ -6,13 +6,17 @@ import { MenuService } from "../app.menu.service";
     selector: 'app-config',
     templateUrl: './app.config.component.html'
 })
-export class AppConfigComponent {
+export class AppConfigComponent implements OnInit {
 
     @Input() minimal: boolean = false;
 
-    scales: number[] = [12, 13, 14, 15, 16];
+    //scales: number[] = [12, 13, 14, 15, 16];
+    
 
     constructor(public layoutService: LayoutService, public menuService: MenuService) { }
+    ngOnInit(): void {
+        this.applyScale();
+    }
 
     get visible(): boolean {
         return this.layoutService.state.configSidebarVisible;
@@ -97,6 +101,6 @@ export class AppConfigComponent {
     }
 
     applyScale() {
-        document.documentElement.style.fontSize = this.scale + 'px';
+        document.documentElement.style.fontSize = 12 + 'px';
     }
 }

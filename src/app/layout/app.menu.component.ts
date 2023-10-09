@@ -17,18 +17,11 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Menu ',
                 items: [
-                    { label: 'Gestion inventario', icon: 'pi pi-fw pi-check-square', routerLink: ['/plantas/inventario'] },
-                    { label: 'Vender productos', icon: 'pi pi-fw pi-dollar', routerLink: ['/plantas/vender'] },
-                    { label: 'Historial de ventas', icon: 'pi pi-fw pi-book', routerLink: ['/plantas/historialventas'] },
-                    //{ label: 'Realizar envio', icon: 'pi pi-fw pi-send', routerLink: ['/plantas/envio'] },
-                    //{ label: 'Historial de envios', icon: 'pi pi-fw pi-book', routerLink: ['/plantas/historialenvios'] },
-                    { label: 'Empleados', icon: 'pi pi-fw pi-users', routerLink: ['/plantas/usuarios'] },
-                    // { label: 'Agregar usuario', icon: 'pi pi-fw pi-user-plus', routerLink: ['/plantas/agregarusuario'] },//
-                    //{ label: 'Clientes', icon: 'pi pi-fw pi-briefcase', routerLink: ['/plantas/clientes'] },
-                    //{ label: 'Proveedor', icon: 'pi pi-fw pi-box', routerLink: ['/plantas/proveedor'] },
-                    //{ label: 'Solicitar productos', icon: 'pi pi-fw pi-globe', routerLink: ['/plantas/solicitarproductos'] },
-                    //{ label: 'Inicio de sesiones', icon: 'pi pi-fw pi-power-off', routerLink: ['/plantas/historialinicios'] },
-                    //{ label: 'Configuracion', icon: 'pi pi-fw pi-cog', routerLink: ['/plantas/configuracion'] },
+                    { label: 'Gestion inventario', icon: 'pi pi-fw pi-check-square', routerLink: ['/menu/plantas/inventario'] },
+                    { label: 'Vender productos', icon: 'pi pi-fw pi-dollar', routerLink: ['/menu/plantas/vender'] },
+                    //{ label: 'Historial de ventas', icon: 'pi pi-fw pi-book', routerLink: ['/menu/plantas/historialventas'] },
+                    { label: 'Empleados', icon: 'pi pi-fw pi-users', routerLink: ['/menu/plantas/usuarios'] },
+                    //{ label: 'Proveedor', icon: 'pi pi-fw pi-box', routerLink: ['/menu/plantas/proveedor'] },
                     { label: 'Cerrar sesion', icon: 'pi pi-fw pi-sign-out', routerLink: ['/auth/login'] },
                 ]
             }

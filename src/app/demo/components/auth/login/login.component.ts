@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 
 @Component({
@@ -13,8 +13,12 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
         }
     `]
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
+    ngOnInit(): void {
+        document.documentElement.style.fontSize = 12 + 'px';
+
+    }
     valCheck: string[] = ['remember'];
 
     password!: string;

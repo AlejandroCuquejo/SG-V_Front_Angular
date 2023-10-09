@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
         { path: 'agregarusuario', data: { breadcrumb: 'Agregarusuario' }, loadChildren: () => import('./agregarusuario/agregarusuario.module').then(m => m.agregarusuariodemoModule) },
         { path: 'clientes', data: { breadcrumb: 'Cliente' }, loadChildren: () => import('./clientes/clientes.module').then(m => m.clientesDemoModule) },
         { path: 'proveedor', data: { breadcrumb: 'Proveedor' }, loadChildren: () => import('./proveedor/proveedor.module').then(m => m.proveedorDemoModule) },
+        { path: 'proveedorForm', data: { breadcrumb: 'ProveedorFrom' }, loadChildren: () => import('./proveedor/proveedorForm/proveedorForm.module').then(m => m.proveedorFormdemoModule) },
         { path: '**', redirectTo: '/notfound' }
     ])],
     exports: [RouterModule]

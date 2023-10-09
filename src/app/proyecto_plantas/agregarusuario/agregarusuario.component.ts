@@ -43,8 +43,6 @@ export class AgregarusuarioComponent {
               } else {                
                 alert("Registrado correctamente");
                 this.router.navigate(['/plantas/usuarios']);
-
-
               }
             } 
           }

@@ -26,7 +26,7 @@ export class UsuariosComponent implements OnInit {
   showAgregarUsuario() {
     const ref = this.dialogService.open(AgregarusuarioComponent, {
         header: 'Agragar usuario',
-        width: '60%'
+        width: '40%'
     });
 }
 
