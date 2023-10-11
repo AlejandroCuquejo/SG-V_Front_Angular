@@ -4,8 +4,8 @@
         <button pButton type="button" (click)="openAgregarEditar('agregar','')" label="Agregar producto " icon="pi pi-plus" class="mr-2 mb-3"></button>  
       </div>
       <div>
-        <button pButton type="button" (click)="openAgregarEditar('agregar','')" icon="pi pi-search " class="mr-2 mb-3" pTooltip="Buscar"  tooltipPosition="top"></button>  
-        <button pButton type="button" (click)="openAgregarEditar('agregar','')" icon="pi pi-filter" class="mr-2 mb-3" pTooltip="Limpiar"  tooltipPosition="top"></button>  
+        <button pButton type="button" (click)="inventarioListData()" icon="pi pi-search " class="mr-2 mb-3" pTooltip="Buscar"  tooltipPosition="top"></button>  
+        <button pButton type="button" (click)="clearFilters()" icon="pi pi-filter" class="mr-2 mb-3" pTooltip="Limpiar"  tooltipPosition="top"></button>  
       </div>
   </div>
   <p-table [paginator]="true" [value]="inventarioList" [first]="start" [rows]="pageSize" [totalRecords]="totalRecords" 
@@ -24,28 +24,27 @@
                       Producto
                       <p-sortIcon field="detallePdto"></p-sortIcon>
                   </div>
-                  <input pInputText style="width:100%">
+                  <input pInputText style="width:100%" formControlName="detallePdto">
               </th>
               <th style="max-width: 100%;">
                   <div pSortableColumn="cantidad" class=" mb-2">
                       Cantidad
                       <p-sortIcon field="cantidad"></p-sortIcon>
                   </div>
-                  <input pInputText style="width:100%">
+                  <input pInputText style="width:100%" formControlName="cantidad">
               </th>
               <th style="max-width: 100%;">
                   <div pSortableColumn="precio" class=" mb-2">
                       Costo
                       <p-sortIcon field="precio"></p-sortIcon>
                   </div>
-                  <input pInputText style="width:100%">
+                  <input pInputText style="width:100%" formControlName="precio">
               </th>
               <th style="max-width: 100%;">
                   <div pSortableColumn="estado" class=" mb-2">
                       Estado
-                      <p-sortIcon field="estado"></p-sortIcon>
-                  </div>
-                  <p-dropdown  optionLabel="label" optionValue="value" [style]="{ width: '100%' }" placeholder="Seleccionar Estado"></p-dropdown>
+                    </div>
+                  <p-dropdown [options]="estado"  optionLabel="label" optionValue="value" [style]="{ width: '100%' }" placeholder="Seleccionar Estado" formControlName="estado" appendTo="body"></p-dropdown>
               </th>
               <th class="text-center">
                   Accion

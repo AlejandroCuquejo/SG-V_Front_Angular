@@ -1,35 +1,31 @@
-	<div class="grid">
-		<div class="col-12">
-		
+	<div class="grid" [formGroup]="inventarioAgregarEditarForm">
+		<div class="col-12" >
 				<div class="p-fluid p-formgrid grid">
 					<div class="field col-12 md:col-6">
-						<label htmlFor="nombre"> <i class="pi pi-user"></i> Codigo <span
+						<label htmlFor="detallePdto"> <i class="pi pi-user"></i> Prodcuto <span
 								style="color: red;">*</span></label>
-						<input pInputText id="nombre" type="text" formControlName="nombre" name="nombre" />
+						<input pInputText id="detallePdto" type="text" formControlName="detallePdto" name="detallePdto" />
 					</div>
 					<div class="field col-12 md:col-6">
-						<label htmlFor="nombre"> <i class="pi pi-user"></i> Prodcuto <span
+						<label htmlFor="cantidad"> <i class="pi pi-user"></i> Cantidad <span
 								style="color: red;">*</span></label>
-						<input pInputText id="nombre" type="text" formControlName="nombre" name="nombre" />
+						<input pInputText id="cantidad" type="text" formControlName="cantidad" name="cantidad" />
 					</div>
 					<div class="field col-12 md:col-6">
-						<label htmlFor="nombre"> <i class="pi pi-user"></i> Cantidad <span
+						<label htmlFor="precio"> <i class="pi pi-user"></i> Precio<span
 								style="color: red;">*</span></label>
-						<input pInputText id="nombre" type="text" formControlName="nombre" name="nombre" />
+						<input pInputText id="precio" type="text" formControlName="precio" name="precio" />
 					</div>
 					<div class="field col-12 md:col-6">
-						<label htmlFor="nombre"> <i class="pi pi-user"></i> Precio<span
+						<label htmlFor="estado"> <i class="pi pi-sitemap"></i> Estado <span
 								style="color: red;">*</span></label>
-						<input pInputText id="nombre" type="text" formControlName="nombre" name="nombre" />
+						<p-dropdown [options]="estadoList" optionLabel="label" optionValue="value" formControlName="estado" placeholder="Selecione un estado"></p-dropdown>
 					</div>
-					<!--div class="field col-12 md:col-3">
-						<label htmlFor="rol"> <i class="pi pi-sitemap"></i> Rol <span
-								style="color: red;">*</span></label>
-						<p-dropdown [options]="dropdownItems" optionLabel="name" formControlName="rol"></p-dropdown>
-					</div-->
 				</div>
 				<div class="flex flex-wrap gap-2">
-					<button pButton pRipple label="Agregar"> </button>		
+					<button pButton pRipple type="button" label="Guardar" (click)="guardarEditar()"></button>
+					<button pButton pRipple type="button" label="Cancelar" class="ml-2" (click)="closeDialog()"></button>				
 				</div>
 			</div>
 		</div>
+

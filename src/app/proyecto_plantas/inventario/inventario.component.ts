@@ -17,6 +17,11 @@ export class InventarioComponent implements OnInit {
   public inventarioList: any [] = [];
   public inventarioForm!: FormGroup;
 
+  public estado: any [] = [
+    {label: "Activo", value: "A"},
+    {label: "Inactivo", value: "I"},
+  ];
+
   inventario: any[] = [];
   public bandera: boolean = false;
 
@@ -34,7 +39,7 @@ export class InventarioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.initComponent(); // Llama a la función para inicializar inventarioForm
+    this.initComponent(); 
     this.inventarioListData();
   }
 
@@ -80,17 +85,13 @@ export class InventarioComponent implements OnInit {
       this.service.getAll(this.start, this.pageSize, this.sortField, this.sortAsc, this.inventarioForm.value)
       .subscribe( (res) =>{
         this.inventarioList = res.data.lista;
-        console.log(this.inventarioList)
       })
     } else {
       this.bandera = true;
     }
   }
+  loadData($event?: any): void { }
 
-  mostrarData(){
-    console.log(this.inventarioList)
-    console.log("sdadsadsds")
-  }
 
   openAgregarEditar(accion: string, data: object|string) {
     let titulo = accion == "editar" ? "Editar" : "Agregar";
@@ -99,7 +100,7 @@ export class InventarioComponent implements OnInit {
         data: data ? data : "",
         width: '35%'
     });
-/*
+
     this.ref.onClose.subscribe( data => {
       if(data){
         if(data.accion === 'editar'){
@@ -107,7 +108,7 @@ export class InventarioComponent implements OnInit {
             {
               next: res =>{
                 if(res){
-                  this.usuarioListData();
+                  this.inventarioListData();
                 }
               },
               error: (error) => {
@@ -120,7 +121,7 @@ export class InventarioComponent implements OnInit {
             {
               next: res =>{
                 if(res){
-                  this.usuarioListData();
+                  this.inventarioListData();
                 }
               },
               error: (error) => {
@@ -130,6 +131,11 @@ export class InventarioComponent implements OnInit {
           )
         }
       }
-    })*/
+    })
+  }
+  
+  clearFilters() {
+    this.initComponent();
+    this.inventarioListData();
   }
 }
