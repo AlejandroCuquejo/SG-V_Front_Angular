@@ -10,10 +10,9 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class AgregarusuarioComponent {
   MandarRegistro: FormGroup;
-  dropdownItems: any[] = [
-    { name: 'Admin', value: 'Admin' },
-    { name: 'Caja', value: 'Caja' },
-    { name: 'Recursos humanos', value: 'RH' }
+  public estadoList: any [] = [
+    {label: "Activo", value: "A"},
+    {label: "Inactivo", value: "I"},
   ];
   router: any;
   

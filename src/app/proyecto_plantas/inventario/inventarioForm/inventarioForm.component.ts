@@ -32,7 +32,7 @@ export class InventarioFormComponent implements OnInit {
       cantidad: new FormControl(""),
       precio: new FormControl(""),
       estado: new FormControl(""),
-      usuAlta: new FormControl("acabanas@exclesis.com.py"),
+      usuAlta: new FormControl("acabanas@alumno.com"),
     })
     if(this.config.data){
       this.setData();
@@ -62,7 +62,7 @@ export class InventarioFormComponent implements OnInit {
         cantidad: this.inventarioAgregarEditarForm.value.cantidad,
         precio: this.inventarioAgregarEditarForm.value.precio,       
         estado: this.inventarioAgregarEditarForm.value.estado,       
-        usuAlta: this.inventarioAgregarEditarForm.value.usuAlta = "acabanas@exclesis.com.py",       
+        usuAlta: this.inventarioAgregarEditarForm.value.usuAlta = "acabanas@alumno.com",       
       }
     }
     this.ref.close(data);
@@ -71,6 +71,4 @@ export class InventarioFormComponent implements OnInit {
   closeDialog(){
     this.ref.close();
   }
-
-
 }

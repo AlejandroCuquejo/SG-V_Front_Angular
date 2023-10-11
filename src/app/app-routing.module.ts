@@ -18,13 +18,13 @@ import { LoginComponent } from './demo/components/auth/login/login.component';
                     { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) }
                 ]
             }, */
-            { path: 'menu', component: AppLayoutComponent,
+            { path: '', component: AppLayoutComponent,
                 children: [
                     { path: '', loadChildren: () => import('./proyecto_plantas/inventario/inventario.module').then(m => m.inventarioDemoModule) },
                     { path: 'plantas', loadChildren: () => import('./proyecto_plantas/plantas.module').then(m => m.PlantasModule) }
                 ]
             },
-            {path: '', component: LoginComponent},
+            {path: 'login', component: LoginComponent},
             { path: 'auth', loadChildren: () => import('./demo/components/auth/auth.module').then(m => m.AuthModule) },
             { path: 'landing', loadChildren: () => import('./demo/components/landing/landing.module').then(m => m.LandingModule) },
             { path: 'notfound', component: NotfoundComponent },

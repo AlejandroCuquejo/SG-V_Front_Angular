@@ -54,7 +54,7 @@ export class InventarioService {
     .pipe(catchError(this.handler.handleError<MessageResponse>('producto:crear')));
   }
 
-  editarUsuario(id: number, productoObj: any, usuario: string = "acabanas@excelsis.com"): Observable<MessageResponse>  {
+  editarUsuario(id: number, productoObj: any, usuario: string = "acabanas@alumno.com"): Observable<MessageResponse>  {
     this.loading.next(true);
     return this.http.put<MessageResponse>(`http://localhost:8080/api/producto/update?id=${id}&usuario=${usuario}`, productoObj, { headers })
     .pipe(finalize(() => { this.loading.next(false); }))
