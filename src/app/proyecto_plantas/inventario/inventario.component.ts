@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 import { InventarioFormComponent } from './inventarioForm/inventarioForm.component';
 import { InventarioService } from './service/inventario.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MessageHandler } from '../shared/handlers/message.handler';
 
 @Component({
   selector: 'app-inventario',
@@ -24,7 +25,7 @@ export class InventarioComponent implements OnInit {
 
   inventario: any[] = [];
   public bandera: boolean = false;
-
+  public messageHandler!: MessageHandler;
   public pageSize: number = 10;
   public start: number = 0;
   public totalRecords: number = 0;
@@ -36,7 +37,10 @@ export class InventarioComponent implements OnInit {
     private service: InventarioService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,
-  ) { }
+    public messageService: MessageService,
+  ) {
+    this.messageHandler = new MessageHandler(this.messageService);
+   }
 
   ngOnInit() {
     this.initComponent(); 
@@ -109,10 +113,14 @@ export class InventarioComponent implements OnInit {
               next: res =>{
                 if(res){
                   this.inventarioListData();
+                  this.messageHandler.showSuccessMessage("Producto modificado correctamente");
+
                 }
               },
               error: (error) => {
                 console.log(error);
+                this.messageHandler.showErrorMessage(error.message);
+
               }
             }
           )
@@ -122,10 +130,13 @@ export class InventarioComponent implements OnInit {
               next: res =>{
                 if(res){
                   this.inventarioListData();
+                  this.messageHandler.showSuccessMessage("Producto agregado correctamente");
                 }
               },
               error: (error) => {
                 console.log(error);
+                this.messageHandler.showErrorMessage(error.message);
+
               }
             }
           )

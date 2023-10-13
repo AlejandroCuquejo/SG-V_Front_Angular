@@ -5,6 +5,7 @@ import { MessageService } from 'primeng/api';
 //import { AgregarusuarioComponent } from '../agregarusuario/agregarusuario.component';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UsuarioFormComponent } from './usuarioForm/usuarioForm.component';
+import { MessageHandler } from '../shared/handlers/message.handler';
 
 @Component({
   selector: 'app-usuarios',
@@ -23,7 +24,7 @@ export class UsuariosComponent implements OnInit {
   ];
 
   public bandera: boolean = false;
-
+  public messageHandler!: MessageHandler;
   public pageSize: number = 10;
   public start: number = 0;
   public totalRecords: number = 0;
@@ -35,7 +36,10 @@ export class UsuariosComponent implements OnInit {
     private service: UsuarioService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,
-  ) { }
+    public messageService: MessageService,
+  ) { 
+    this.messageHandler = new MessageHandler(this.messageService);
+  }
   
   ngOnInit() {
     this.initComponent(); 
@@ -108,10 +112,13 @@ export class UsuariosComponent implements OnInit {
               next: res =>{
                 if(res){
                   this.usuarioListData();
+                  this.messageHandler.showSuccessMessage("Empleado modificado correctamente");
+
                 }
               },
               error: (error) => {
                 console.log(error);
+                this.messageHandler.showErrorMessage(error.message);
               }
             }
           )
@@ -121,10 +128,12 @@ export class UsuariosComponent implements OnInit {
               next: res =>{
                 if(res){
                   this.usuarioListData();
+                  this.messageHandler.showSuccessMessage("Empleado agregado correctamente");
                 }
               },
               error: (error) => {
                 console.log(error);
+                this.messageHandler.showErrorMessage(error.message);
               }
             }
           )
