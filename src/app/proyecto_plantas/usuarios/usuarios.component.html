@@ -8,30 +8,30 @@
       <button pButton type="button" (click)="clearFilters()" icon="pi pi-filter" class="mr-2 mb-3" pTooltip="Limpiar"  tooltipPosition="top"></button>  
     </div>
 </div>
-  <p-table [paginator]="true" [value]="usuarioList2" [first]="start" [rows]="pageSize" [totalRecords]="totalRecords" 
+  <p-table [paginator]="true" [value]="usuarioList" [first]="start" [rows]="pageSize" [totalRecords]="totalRecords" 
   [lazy]="true" (onLazyLoad)="onLazyLoadData($event)" columnResizeMode="expand" styleClass="p-datatable-gridlines" [resizableColumns]="true" >
       <ng-template pTemplate="header">
           <tr>
               <th style="max-width: 100%;">
-                  <div pSortableColumn="detallePdto" class=" mb-2">
+                  <div pSortableColumn="nombre" class=" mb-2">
                       Nombre
-                      <p-sortIcon field="detallePdto"></p-sortIcon>
+                      <p-sortIcon field="nombre"></p-sortIcon>
                   </div>
-                  <input pInputText style="width:100%" formControlName="detallePdto">
+                  <input pInputText style="width:100%" formControlName="nombre">
               </th>
               <th style="max-width: 100%;">
-                  <div pSortableColumn="cantidad" class=" mb-2">
+                  <div pSortableColumn="apellido" class=" mb-2">
                       Apellido
-                      <p-sortIcon field="cantidad"></p-sortIcon>
+                      <p-sortIcon field="apellido"></p-sortIcon>
                   </div>
-                  <input pInputText style="width:100%" formControlName="cantidad">
+                  <input pInputText style="width:100%" formControlName="apellido">
               </th>
               <th style="max-width: 100%;">
-                  <div pSortableColumn="precio" class=" mb-2">
+                  <div pSortableColumn="correo" class=" mb-2">
                       Correo
-                      <p-sortIcon field="precio"></p-sortIcon>
+                      <p-sortIcon field="correo"></p-sortIcon>
                   </div>
-                  <input pInputText style="width:100%" formControlName="precio">
+                  <input pInputText style="width:100%" formControlName="correo">
               </th>
               <th style="max-width: 100%;">
                   <div pSortableColumn="estado" class=" mb-2">
@@ -44,15 +44,15 @@
               </th>
           </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-usuarioList2>
+      <ng-template pTemplate="body" let-empleados>
           <tr>
             <!--td>{{ inventario.idProducto }}</td-->
-            <td>{{ usuarioList2.nombre }}</td>
-            <td>{{ usuarioList2.apellido }}</td>
-            <td>{{ usuarioList2.correo }}</td>
-            <td class="text-center">{{usuarioList2.estado == "A" ? "Activo" : "Inactivo"}}</td>
+            <td>{{ empleados.nombre }}</td>
+            <td>{{ empleados.apellido }}</td>
+            <td>{{ empleados.correo }}</td>
+            <td class="text-center">{{empleados.estado == "A" ? "Activo" : "Inactivo"}}</td>
               <td class="flex justify-content-center">
-                <p-button icon="pi pi-pencil" styleClass="p-button-success mr-2" (click)="openAgregarEditar('editar', usuarioList2)" pTooltip="Editar"></p-button>
+                <p-button icon="pi pi-pencil" styleClass="p-button-success mr-2" (click)="openAgregarEditar('editar', empleados)" pTooltip="Editar"></p-button>
                 <!--p-button icon="pi pi-cart-plus" styleClass="p-button-success mr-2"  pTooltip="Añadir a carrito"  tooltipPosition="top"></p-button-->
               </td>
           </tr>

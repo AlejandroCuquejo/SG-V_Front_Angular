@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
-import { HistorialventasDemoRoutingModule } from './historialventas-routing.module';
-import { HistorialventasComponent } from './historialventas.component';
+import { UsuarioFormComponent } from './usuarioForm.component';
+import { UsuarioFormDemoRoutingModule } from './usuarioForm-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { DividerModule } from 'primeng/divider';
@@ -12,10 +12,11 @@ import { PasswordModule } from 'primeng/password';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { ToastModule } from 'primeng/toast';
 
+
 @NgModule({
 	imports: [
 		CommonModule,
-		HistorialventasDemoRoutingModule,
+		UsuarioFormDemoRoutingModule,
 		TableModule,
 		InputTextModule,
 		DropdownModule,
@@ -24,8 +25,9 @@ import { ToastModule } from 'primeng/toast';
 		DividerModule,
 		ReactiveFormsModule,
 		ConfirmPopupModule,
-		ToastModule
+		ToastModule 
+		
 	],
-	declarations: [HistorialventasComponent]
+	declarations: [UsuarioFormComponent]
 })
-export class historialventasdemoModule { }
+export class usuarioDemoModule { }

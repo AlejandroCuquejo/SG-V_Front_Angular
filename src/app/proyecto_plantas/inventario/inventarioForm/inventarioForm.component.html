@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="flex flex-wrap gap-2">
-					<button pButton pRipple type="button" label="Guardar" (click)="guardarEditar()"></button>
+					<button pButton pRipple type="button" label="Guardar" (click)="guardarEditar()" [disabled]="!inventarioAgregarEditarForm.valid"></button>
 					<button pButton pRipple type="button" label="Cancelar" class="ml-2" (click)="closeDialog()"></button>				
 				</div>
 			</div>

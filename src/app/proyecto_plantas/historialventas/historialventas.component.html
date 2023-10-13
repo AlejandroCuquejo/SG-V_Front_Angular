@@ -1,27 +1,67 @@
-<div class="grid">
-  <div class="col-12">
-    <div class="card">
-      
-<p-table [value]="historialventas" styleClass="p-datatable-gridlines" [tableStyle]="{ 'min-width': '50rem' }">
-  <ng-template pTemplate="header">
-    <tr>
-      <th>Codigo venta</th>
-      <th>Producto/s</th>
-      <th>Costo total</th>
-      <th>Fecha de compra</th>
-      <th>Acciones</th>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="body" let-historialventas>
-    <tr>
-      <td>{{ historialventas.Codigo }}</td>
-      <td>{{ historialventas.Productos }}</td>
-      <td>{{ historialventas.Costo }}</td>
-      <td>{{ historialventas.Fecha }}</td>
-    </tr>
-  </ng-template>
-</p-table>
-    </div>
+<div class="card" [formGroup]="historialventasForm">
+  <div class="flex justify-content-between">
+      <div class="w-auto">
+
+      </div>
+      <div>
+        <button pButton type="button" (click)="inventarioListData()" icon="pi pi-search " class="mr-2 mb-3" pTooltip="Buscar"  tooltipPosition="top"></button>  
+        <button pButton type="button" (click)="clearFilters()" icon="pi pi-filter" class="mr-2 mb-3" pTooltip="Limpiar"  tooltipPosition="top"></button>  
+      </div>
   </div>
+  <p-table [paginator]="true" [value]="Ventas" [first]="start" [rows]="pageSize" [totalRecords]="totalRecords" 
+  [lazy]="true" (onLazyLoad)="onLazyLoadData($event)" columnResizeMode="expand" styleClass="p-datatable-gridlines" [resizableColumns]="true" >
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="max-width: 100%;">
+                  <div pSortableColumn="idProducto" class=" mb-2">
+                      Codigo venta
+                      <p-sortIcon field="idProducto"></p-sortIcon>
+                  </div>
+                  <input pInputText style="width:100%" formControlName="idProducto">
+              </th>
+              <th style="max-width: 100%;">
+                  <div pSortableColumn="detallePdto" class=" mb-2">
+                    Producto/s
+                      <p-sortIcon field="detallePdto"></p-sortIcon>
+                  </div>
+                  <input pInputText style="width:100%" formControlName="detallePdto">
+              </th>
+              <th style="max-width: 100%;">
+                  <div pSortableColumn="cantidad" class=" mb-2">
+                    Costo total
+                      <p-sortIcon field="cantidad"></p-sortIcon>
+                  </div>
+                  <input pInputText style="width:100%" formControlName="cantidad">
+              </th>
+              <th style="max-width: 100%;">
+                  <div pSortableColumn="precio" class=" mb-2">
+                    Fecha de compra
+                      <p-sortIcon field="precio"></p-sortIcon>
+                  </div>
+                  <input pInputText style="width:100%" formControlName="precio">
+              </th>
+              <!--th style="max-width: 100%;">
+                  <div pSortableColumn="estado" class=" mb-2">
+                      Estado
+                    </div>
+                  <p-dropdown [options]="estado"  optionLabel="label" optionValue="value" [style]="{ width: '100%' }" placeholder="Seleccionar Estado" formControlName="estado" appendTo="body"></p-dropdown>
+              </th-->
+              <th class="text-center">
+                  Accion
+              </th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-inventario>
+          <tr>
+            <td>{{ inventario.codigo }}</td>
+            <td>{{ inventario.productos }}</td>
+            <td class="text-right">₲ {{ inventario.costoTotal }}</td>
+            <td>{{ inventario.fechaCompra }}</td>  
+              <td class="flex justify-content-center">
+                  <p-button icon="pi pi-eye" styleClass="p-button-success mr-2" pTooltip="Ver mas"></p-button>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
 </div>
 

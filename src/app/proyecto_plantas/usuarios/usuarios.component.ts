@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from './service/usuario.service';
 import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { MessageService } from 'primeng/api';
-import { AgregarusuarioComponent } from '../agregarusuario/agregarusuario.component';
+//import { AgregarusuarioComponent } from '../agregarusuario/agregarusuario.component';
 import { FormControl, FormGroup } from '@angular/forms';
-import { InventarioService } from '../inventario/service/inventario.service';
+import { UsuarioFormComponent } from './usuarioForm/usuarioForm.component';
 
 @Component({
   selector: 'app-usuarios',
@@ -14,21 +14,7 @@ import { InventarioService } from '../inventario/service/inventario.service';
 
 })
 export class UsuariosComponent implements OnInit {
-  usuarioList2 = [
-    {
-      "nombre": "Juan",
-      "apellido": "Pérez",
-      "correo": "juan.perez@example.com",
-      "estado": "A"
-    },
-    {
-      "nombre": "María",
-      "apellido": "Gómez",
-      "correo": "maria.gomez@example.com",
-      "estado": "I"
-    },
-  ];
-  
+
   public usuarioList: any [] = [];
   public usuarioForm!: FormGroup;
   public estado: any [] = [
@@ -42,12 +28,13 @@ export class UsuariosComponent implements OnInit {
   public start: number = 0;
   public totalRecords: number = 0;
   public sortAsc: boolean = true;
-  public sortField: string = "detallePdto"; //!!!!!!!!!!!! Cambiar detallePdto !!!!!!!!!!!!!
+  public sortField: string = "apellido"; 
 
   constructor(
     public dialogService: DialogService,
-    private service: InventarioService,
+    private service: UsuarioService,
     public ref: DynamicDialogRef,
+    public config: DynamicDialogConfig,
   ) { }
   
   ngOnInit() {
@@ -57,11 +44,11 @@ export class UsuariosComponent implements OnInit {
 
   initComponent(){
     this.usuarioForm = new FormGroup({
-      //idProducto: new FormControl(""),
-      //detallePdto: new FormControl(""),
-      //cantidad: new FormControl(""),
-      //precio: new FormControl(""),
-      //estado: new FormControl(""),
+      idUsuario: new FormControl(""),
+      nombre: new FormControl(""),
+      apellido: new FormControl(""),
+      correo: new FormControl(""),
+      estado: new FormControl(""),
     })
   }
 
@@ -107,7 +94,7 @@ export class UsuariosComponent implements OnInit {
   
   openAgregarEditar(accion: string, data: object|string) {
     let titulo = accion == "editar" ? "Editar" : "Agregar";
-    this.ref = this.dialogService.open(AgregarusuarioComponent, {
+    this.ref = this.dialogService.open(UsuarioFormComponent, {
         header: `${titulo} `,
         data: data ? data : "",
         width: '35%'

@@ -8,7 +8,7 @@ import { RouterModule } from '@angular/router';
         { path: 'vender', data: { breadcrumb: 'vender' }, loadChildren: () => import('./vender/vender.module').then(m => m.venderdemoModule) },
         { path: 'historialventas', data: { breadcrumb: 'Historialventas' }, loadChildren: () => import('./historialventas/historialventas.module').then(m => m.historialventasdemoModule) },
         { path: 'usuarios', data: { breadcrumb: 'Usuario' }, loadChildren: () => import('./usuarios/usuariodemo.module').then(m => m.UsuariosDemoModule) },
-        { path: 'agregarusuario', data: { breadcrumb: 'Agregarusuario' }, loadChildren: () => import('./agregarusuario/agregarusuario.module').then(m => m.agregarusuariodemoModule) },
+        { path: 'usuarioForm', data: { breadcrumb: 'UsuarioForm' }, loadChildren: () => import('./usuarios/usuarioForm/usuarioForm.module').then(m => m.usuarioDemoModule) },
         { path: 'proveedor', data: { breadcrumb: 'Proveedor' }, loadChildren: () => import('./proveedor/proveedor.module').then(m => m.proveedorDemoModule) },
         { path: 'proveedorForm', data: { breadcrumb: 'ProveedorFrom' }, loadChildren: () => import('./proveedor/proveedorForm/proveedorForm.module').then(m => m.proveedorFormdemoModule) },
         { path: '**', redirectTo: '/notfound' }

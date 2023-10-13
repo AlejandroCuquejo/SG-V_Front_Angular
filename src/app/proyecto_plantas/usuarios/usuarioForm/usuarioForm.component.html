@@ -1,0 +1,31 @@
+<div class="grid" [formGroup]="UsuarioAgregarEditarForm">
+  <div class="col-12" >
+      <div class="p-fluid p-formgrid grid">
+        <div class="field col-12 md:col-6">
+          <label htmlFor="nombre"> <i class="pi pi-user"></i> Nombre <span
+              style="color: red;">*</span></label>
+          <input pInputText id="nombre" type="text" formControlName="nombre" name="nombre" />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label htmlFor="apellido"> <i class="pi pi-user"></i> Apellido <span
+              style="color: red;">*</span></label>
+          <input pInputText id="apellido" type="text" formControlName="apellido" name="apellido" />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label htmlFor="correo"> <i class="pi pi-user"></i> correo<span
+              style="color: red;">*</span></label>
+          <input pInputText id="correo" type="text" formControlName="correo" name="correo" />
+        </div>
+        <div class="field col-12 md:col-6">
+          <label htmlFor="estado"> <i class="pi pi-sitemap"></i> Estado <span
+              style="color: red;">*</span></label>
+          <p-dropdown [options]="estadoList" optionLabel="label" optionValue="value" formControlName="estado" placeholder="Selecione un estado"></p-dropdown>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <button pButton pRipple type="button"  label="Guardar" (click)="guardarEditar()" [disabled]="!UsuarioAgregarEditarForm.valid"></button>
+        <button pButton pRipple type="button" label="Cancelar" class="ml-2" (click)="closeDialog()"></button>				
+      </div>
+    </div>
+  </div>
+

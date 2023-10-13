@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { InventarioService } from '../service/inventario.service';
 
@@ -28,10 +28,10 @@ export class InventarioFormComponent implements OnInit {
 
   initComponent(){
     this.inventarioAgregarEditarForm = new FormGroup({
-      detallePdto: new FormControl(""),
-      cantidad: new FormControl(""),
-      precio: new FormControl(""),
-      estado: new FormControl(""),
+      detallePdto: new FormControl("", Validators.required),
+      cantidad: new FormControl("", Validators.required),
+      precio: new FormControl("", Validators.required),
+      estado: new FormControl("", Validators.required),
       usuAlta: new FormControl("acabanas@alumno.com"),
     })
     if(this.config.data){
