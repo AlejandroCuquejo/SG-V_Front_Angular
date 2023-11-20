@@ -41,6 +41,10 @@ export class AppTopBarComponent {
         this.icono = (this.icono == 'pi pi-moon') ? 'pi pi-sun' : 'pi pi-moon';
     }
 
+    openIndexPage(): void {
+        window.open('file:C:\Users\aleja_7j3yrdb\Escritorio\shree\index.html');
+      }
+
     replaceThemeLink(href: string, onComplete: Function) {
         const id = 'theme-css';
         const themeLink = <HTMLLinkElement>document.getElementById('theme-css');

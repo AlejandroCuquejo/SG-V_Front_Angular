@@ -1,7 +1,7 @@
 <div class="layout-topbar">
     <a class="layout-topbar-logo" routerLink="/plantas/inventario">
-        <img src="https://i.imgur.com/9Sp70V7.png" alt="logo">
-        <span>THE SUBLIME GARDENS</span>
+        <img src="https://i.imgur.com/4oONNDk.png" alt="logo" >
+        <span>KÉFIR BUBBLES</span>
     </a>
 
     <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
@@ -17,6 +17,9 @@
         <button class="p-link layout-topbar-button" (click)="changeTheme(tema, modo)">
             <i class={{icono}}></i>
          </button>
+         <button class="p-link layout-topbar-button" (click)="openIndexPage()">
+            <i class="pi pi-globe"></i>
+          </button>          
         <!--button class="p-link layout-topbar-button">
             <i class="pi pi-calendar"></i>
             <span>Calendar</span>
