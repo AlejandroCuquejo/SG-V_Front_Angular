@@ -4,6 +4,7 @@ import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dy
 import { MessageService } from 'primeng/api';
 import { FormControl, FormGroup } from '@angular/forms';
 import { VenderService } from './service/vender.service';
+import { MessageHandler } from '../shared/handlers/message.handler';
 
 @Component({
   selector: 'app-vender',
@@ -22,7 +23,7 @@ export class VenderComponent implements OnInit {
   ];
 
   public bandera: boolean = false;
-
+  public messageHandler!: MessageHandler;
   public pageSize: number = 10;
   public start: number = 0;
   public totalRecords: number = 0;
@@ -34,7 +35,10 @@ export class VenderComponent implements OnInit {
     private service: VenderService,
     public ref: DynamicDialogRef,
     public config: DynamicDialogConfig,
-  ) { }
+    public messageService: MessageService,
+  ) {
+    this.messageHandler = new MessageHandler(this.messageService);
+   }
 
   ngOnInit() {
     this.initComponent(); 
@@ -90,6 +94,34 @@ export class VenderComponent implements OnInit {
   }
   loadData($event?: any): void { }
 
+  venderProducto(id: number, cantidad: number) {
+    const data = {
+      id: id,
+      form: {
+        cantidad: cantidad,
+        usuAlta: "acabanas@alumno.com",
+      },
+    };
+  
+    this.service.venderProducto(data.id, data.form).subscribe({
+      next: (res) => {
+        if (res) {
+          this.messageHandler.showSuccessMessage("Producto vendido");
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
+        }
+        else{
+          this.messageHandler.showWarningMessage("Añada productos");
+        }
+      },
+      error: (error) => {
+        console.log(error);
+        this.messageHandler.showErrorMessage("Error al vender producto");
+      },
+    });
+  }
+  
   clearFilters() {
     this.initComponent();
     this.productoListData();

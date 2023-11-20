@@ -46,7 +46,7 @@
                     </div>
                   <p-dropdown [options]="estado"  optionLabel="label" optionValue="value" [style]="{ width: '100%' }" placeholder="Seleccionar Estado" formControlName="estado" appendTo="body"></p-dropdown>
               </th-->
-              <th class="text-center">
+              <th class="text-center" style="width: 20%;">
                   Accion
               </th>
           </tr>
@@ -58,12 +58,14 @@
             <td>{{ inventario.cantidad }}</td>
             <td class="text-right">₲ {{ inventario.precio }} </td>
             <!--td class="text-center">{{inventario.estado == "A" ? "Activo" : "Inactivo"}}</td-->
-              <td class="flex justify-content-center">
-                  <p-button icon="pi pi-dollar" styleClass="p-button-success mr-2"  pTooltip="Vender"  tooltipPosition="top"></p-button>
-                  <p-button icon="pi pi-cart-plus" styleClass="p-button-success mr-2"  pTooltip="Añadir a carrito"  tooltipPosition="top"></p-button>
-              </td>
+              <td class="flex justify-content-center" style="width: 100%;">
+                <input pInputText style="width:100%" formControlName="cantidad">
+                <!-- <button p-button icon="pi pi-dollar" styleClass="p-button-success ml-2"  pTooltip="Vender" tooltipPosition="top"></button> -->
+                <p-button icon="pi pi-dollar" styleClass="p-button-success ml-2" (click)="venderProducto(inventario.idProducto, productoForm.controls['cantidad'].value)" [disabled]="!productoForm.valid" pTooltip="Vender"  tooltipPosition="top" ></p-button>
+            </td>
           </tr>
       </ng-template>
   </p-table>
+  <p-toast></p-toast>
 </div>
 
