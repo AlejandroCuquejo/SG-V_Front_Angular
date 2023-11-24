@@ -13,33 +13,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class HistorialventasComponent implements OnInit {
 
-   Ventas = [
-    {
-      "codigo": "1",
-      "productos": "Boemia(12), Cerezos(3)",
-      "costoTotal": "₲ 468000",
-      "fechaCompra": "12/10/2023"
-    },
-    {
-      "codigo": "2",
-      "productos": "Lavanda(4)",
-      "costoTotal": "₲ 76500",
-      "fechaCompra": "13/10/2023"
-    },
-    {
-      "codigo": "3",
-      "productos": "Bambú (15), Rosas(6)",
-      "costoTotal": "₲ 289000",
-      "fechaCompra": "13/10/2023"
-    },
-
-
-    // Puedes agregar más objetos JSON aquí
-  ];
-
   public historialventasForm!: FormGroup;
   public historialventasList: any [] = [];
   public bandera: boolean = false;
+  public today: string = new Date().toLocaleDateString();
+  public cant: number = 0;
 
   public estado: any [] = [
     {label: "Activo", value: "A"},
@@ -66,11 +44,11 @@ export class HistorialventasComponent implements OnInit {
 
   initComponent(){
     this.historialventasForm = new FormGroup({
-      //idProducto: new FormControl(""),
-      //detallePdto: new FormControl(""),
-      //cantidad: new FormControl(""),
-      //precio: new FormControl(""),
-      //estado: new FormControl(""),
+      idProducto: new FormControl(""),
+      detallePdto: new FormControl(""),
+      cantidad: new FormControl(""),
+      precio: new FormControl(""),
+      estado: new FormControl(""),
     })
   }
 

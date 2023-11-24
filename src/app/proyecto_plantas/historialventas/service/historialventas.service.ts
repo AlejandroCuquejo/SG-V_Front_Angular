@@ -26,14 +26,14 @@ export class HistorialventasService {
         .set('pageSize',`${pageSize}`)
         .set('sortField',`${sortField}`)
         .set('sortAsc',`${sortAsc}`)
-        .set('idProducto',`${data.idProducto}`)
+        .set('idHistPdto',`${data.idProducto}`)
         .set('detallePdto',`${data.detallePdto}`)
         .set('cantidad',`${data.cantidad}`)
         .set('precio',`${data.precio}`)
         .set('estado',`${data.estado}`)
         .set('estado',`${data.estado}`)
 
-        return this.http.get<MessageResponse>("http://localhost:8080/api/producto/list", { params, headers })
+        return this.http.get<MessageResponse>("http://localhost:8080/api/historicoProducto/list", { params, headers })
         .pipe(
           finalize(() => {
               this.loading.next(false);
@@ -41,7 +41,7 @@ export class HistorialventasService {
       )
       .pipe(
           catchError(
-              this.handler.handleError<MessageResponse>("producto:list")
+              this.handler.handleError<MessageResponse>("historico:list")
           )
       );
   }
